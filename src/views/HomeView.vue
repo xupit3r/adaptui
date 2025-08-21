@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseLayout from '@/components/BaseLayout.vue';
+import BaseInput from '@/components/BaseInput.vue';
 </script>
 
 <template>
@@ -7,7 +8,7 @@ import BaseLayout from '@/components/BaseLayout.vue';
   <template v-slot:header>
     header
   </template>
-  main
+  <BaseInput type="text" />
   <template v-slot:footer>
     footer
   </template>
