@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import Canvas from '@/components/Canvas.vue';
+import BaseLayout from '@/components/BaseLayout.vue';
 </script>
 
 <template>
-  <main>
-    <Canvas id="me" height=500 width=500 />
-  </main>
+  <BaseLayout>
+  <template v-slot:header>
+    header
+  </template>
+  main
+  <template v-slot:footer>
+    footer
+  </template>
+  </BaseLayout>
 </template>
