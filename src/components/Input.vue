@@ -44,17 +44,18 @@ const {
   }
 });
 
-const isText = computed(() => type === 'text');
-const isCheckbox = computed(() => type === 'checkbox');
-const isRadio = computed(() => type === 'radio');
+const isType = (t: string) => type === t;
 
 </script>
 
 <template>
   <div class="input">
-    <Text v-if="isText" v-bind="$props" />
-    <Checkbox v-if="isCheckbox" v-bind="$props" />
-    <Radio v-if="isRadio" v-bind="$props" />
+    <label>
+      <slot>label</slot>
+    </label>
+    <Text v-if="isType('text')" v-bind="$props" />
+    <Checkbox v-if="isType('checkbox')" v-bind="$props" />
+    <Radio v-if="isType('radio')" v-bind="$props" />
   </div>
 </template>
 
