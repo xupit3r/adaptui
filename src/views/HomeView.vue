@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BaseLayout from '@/components/BaseLayout.vue';
-import BaseInput from '@/components/BaseInput.vue';
+import Input from '@/components/Input.vue';
 </script>
 
 <template>
@@ -9,9 +9,9 @@ import BaseInput from '@/components/BaseInput.vue';
     header
   </template>
 
-  <BaseInput type="text" />
-  <BaseInput type="radio" />
-  <BaseInput type="checkbox" />
+  <Input type="text" />
+  <Input type="radio" />
+  <Input type="checkbox" />
 
   <template v-slot:footer>
     footer
