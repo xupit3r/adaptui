@@ -8,7 +8,11 @@ import BaseInput from '@/components/BaseInput.vue';
   <template v-slot:header>
     header
   </template>
+
   <BaseInput type="text" />
+  <BaseInput type="radio" />
+  <BaseInput type="checkbox" />
+
   <template v-slot:footer>
     footer
   </template>

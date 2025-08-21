@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import Text from '@/components/inputs/Text.vue';
+import Checkbox from '@/components/inputs/Checkbox.vue';
+import Radio from '@/components/inputs/Radio.vue';
+
 import { computed } from 'vue';
 const {
   type,
@@ -49,15 +52,9 @@ const isRadio = computed(() => type === 'radio');
 
 <template>
   <div class="input">
-    <Text v-if="isText" 
-          :name="name"
-          :value="value"
-          :placeholder="placeholder"
-          :id="id"
-          :required="required"
-          :min="min"
-          :max="max"
-          :maxlength="maxlength" />
+    <Text v-if="isText" v-bind="$props" />
+    <Checkbox v-if="isCheckbox" v-bind="$props" />
+    <Radio v-if="isRadio" v-bind="$props" />
   </div>
 </template>
 
