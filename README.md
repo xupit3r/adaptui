@@ -1,6 +1,8 @@
 # adaptui
 
-This template should help get you started developing with Vue 3 in Vite.
+this is an attempt to create a generalized and adaptable UI library....
+
+i am also trying to shake off the cobb webs....
 
 ## Recommended IDE Setup
 
