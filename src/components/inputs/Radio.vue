@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BaseInput from '@/components/inputs/BaseInput.vue';
+
 const props = defineProps([
   'type',
   'name',
