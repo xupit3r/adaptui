@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide } from 'vue';
+import { computed, provide } from 'vue';
 
 import Text from '@/components/inputs/Text.vue';
 import Checkbox from '@/components/inputs/Checkbox.vue';
@@ -47,6 +47,18 @@ const {
 
 const isType = (t: string) => type === t;
 
+const componentType = computed(() => {
+  if (isType('text')) {
+    return Text;
+  } else if (isType('radio')) {
+    return Radio;
+  } else if (isType('checkbox')) {
+    return Checkbox
+  } else {
+    return Text;
+  }
+});
+
 provide('save', () => {
   console.log(`saving ${type} field.`)
 });
@@ -56,11 +68,9 @@ provide('save', () => {
 <template>
   <div class="input">
     <label>
-      <slot>label</slot>
+      <slot name="label">label</slot>
     </label>
-    <Text v-if="isType('text')" v-bind="$props" />
-    <Checkbox v-if="isType('checkbox')" v-bind="$props" />
-    <Radio v-if="isType('radio')" v-bind="$props" />
+    <component :is="componentType" v-bind="$props" />
   </div>
 </template>
 

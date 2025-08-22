@@ -9,9 +9,15 @@ import Input from '@/components/Input.vue';
     header
   </template>
 
-  <Input type="text">Text</Input>
-  <Input type="radio">Radio</Input>
-  <Input type="checkbox">Checkbox</Input>
+  <Input type="text">
+    <template v-slot:label>text</template>
+  </Input>
+  <Input type="radio">
+    <template v-slot:label>radio</template>
+  </Input>
+  <Input type="checkbox">
+    <template v-slot:label>checkbox</template>
+  </Input>
 
   <template v-slot:footer>
     footer
