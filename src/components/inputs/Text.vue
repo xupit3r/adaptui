@@ -1,11 +1,22 @@
 <script setup lang="ts">
-import { inject } from 'vue';
+const props = defineProps([
+  'type',
+  'name',
+  'value',
+  'placeholder',
+  'id',
+  'required',
+  'min',
+  'max',
+  'maxlength'
+]);
 
-const save: Function | undefined = inject('save');
+
+// do any text specific things here
 </script>
 
 <template>
-  <input type="text" @change="save" />
+  <BaseInput v-bind="$props" />
 </template>
 
 <style lang="css" scoped>
