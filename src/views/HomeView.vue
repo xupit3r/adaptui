@@ -9,13 +9,13 @@ import Input from '@/components/Input.vue';
     header
   </template>
 
-  <Input type="text">
+  <Input type="text" name="text">
     <template v-slot:label>text</template>
   </Input>
-  <Input type="radio">
+  <Input type="radio" name="radio">
     <template v-slot:label>radio</template>
   </Input>
-  <Input type="checkbox">
+  <Input type="checkbox" name="checkbox">
     <template v-slot:label>checkbox</template>
   </Input>
 

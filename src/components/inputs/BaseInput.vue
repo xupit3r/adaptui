@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { inject } from 'vue';
 
-const { type, id, name, placeholder, required, min, max, maxlength } = defineProps([
+const { type, id, name, value, placeholder, required, min, max, maxlength } = defineProps([
   'type',
   'name',
   'value',
@@ -15,6 +15,14 @@ const { type, id, name, placeholder, required, min, max, maxlength } = definePro
 
 const save: Function | undefined = inject('save');
 
+const doSave = (ev: Event) => {
+  const target = ev.target as HTMLInputElement;
+
+  if (save) {
+    save(name, target.value);
+  }
+}
+
 
 console.log(`setting up a ${type} w/ name ${name} and ID ${id}`)
 </script>
@@ -22,13 +30,14 @@ console.log(`setting up a ${type} w/ name ${name} and ID ${id}`)
 <template>
   <input :type="type" 
          :name="name"
+         :value="value"
          :id="id"
          :placeholder="placeholder"
          :required="required"
          :min="min"
          :max="max"
          :maxlength="maxlength"
-         @change="save" />
+         @change="doSave" />
 </template>
 
 <style lang="css" scoped>

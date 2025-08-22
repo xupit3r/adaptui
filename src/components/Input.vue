@@ -4,6 +4,9 @@ import { computed, provide } from 'vue';
 import Text from '@/components/inputs/Text.vue';
 import Checkbox from '@/components/inputs/Checkbox.vue';
 import Radio from '@/components/inputs/Radio.vue';
+import { useInputStore } from '@/stores/input';
+
+const { put } = useInputStore();
 
 const { type } = defineProps([
   'type',
@@ -31,8 +34,9 @@ const componentType = computed(() => {
   }
 });
 
-provide('save', () => {
-  console.log(`saving ${type} field.`)
+provide('save', (name: string, value: any) => {
+  console.log(`saving ${name} ->`, value);
+  put(name, value)
 });
 
 </script>
