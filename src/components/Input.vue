@@ -6,9 +6,9 @@ import Checkbox from '@/components/inputs/Checkbox.vue';
 import Radio from '@/components/inputs/Radio.vue';
 import { useInputStore } from '@/stores/input';
 
-const { put } = useInputStore();
+const { get, put } = useInputStore();
 
-const { type } = defineProps([
+const { type, name } = defineProps([
   'type',
   'name',
   'value',
@@ -35,20 +35,28 @@ const componentType = computed(() => {
 });
 
 provide('save', (name: string, value: any) => {
-  console.log(`saving ${name} ->`, value);
-  put(name, value)
+  if (name) {
+    put(name, value)
+  }
 });
 
 </script>
 
 <template>
-  <div class="input">
+  <div class="fieldGroup_input">
     <label>
       <slot name="label">label</slot>
     </label>
-    <component :is="componentType" v-bind="$props" />
+    <component :is="componentType" v-bind="$props" :value="get(name)" />
   </div>
 </template>
 
 <style lang="css" scoped>
+.input {
+  padding: 5px;
+}
+
+label {
+  margin-right: 5px;
+}
 </style>
